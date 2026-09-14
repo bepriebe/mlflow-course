@@ -65,3 +65,24 @@ mlflow run . --env-manager local --experiment-name Apple_Models
 
 The tracking server at `http://127.0.0.1:8080` must be running before starting
 the project.
+
+## Serve a registered model
+
+To expose version 1 of the registered model as a local REST API, start a second
+MLflow process. The tracking URI must be exported because this command runs in
+a separate process:
+
+```bash
+export MLFLOW_TRACKING_URI=http://127.0.0.1:8080
+mlflow models serve \
+  --model-uri "models:/AppleDemandModel/1" \
+  --host 127.0.0.1 \
+  --port 5002 \
+  --env-manager local
+```
+
+With that process running, test the endpoint from another terminal:
+
+```bash
+python src/07_test_api.py
+```
