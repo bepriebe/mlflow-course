@@ -11,7 +11,8 @@ dependencies stay next to the repository. The environment directory is named
 
 ```bash
 cd mlflow-course
-python3 -m venv env_mlflow
+python3 -m pip install --user virtualenv
+/usr/bin/virtualenv --python=/usr/bin/python3 env_mlflow
 source env_mlflow/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
