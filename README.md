@@ -53,3 +53,15 @@ Then run the tracking example from the repository root:
 ```bash
 python src/experiment.py
 ```
+
+## MLflow Project
+
+The same experiment can be launched through the `MLproject` definition while
+using the already activated environment:
+
+```bash
+mlflow run . --env-manager local
+```
+
+The tracking server at `http://127.0.0.1:8080` must be running before starting
+the project.

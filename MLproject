@@ -1,0 +1,5 @@
+name: apple-demand
+
+entry_points:
+  main:
+    command: "python src/experiment.py"
